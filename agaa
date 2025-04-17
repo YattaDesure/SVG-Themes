@@ -1,0 +1,80 @@
+public static int DeleteBook(string BookId)
+int rows;
+try using
+(HySqlConnection connection = new MySqlConnection(ConnectionString))
+connection.OpenO:
+MySqlComnand command = new MySqlCommand("DELETE FROM Books WHERE BookId = @id", connection);
+command. Paraneters-AddWithValue("@id", Bookid);
+rOws = command. ExecuteNonQuery;
+return rows;
+catch
+(Exception ex)
+MessageBox. Show(ex.Message);
+ZOWS = 03
+return Toms;
+
+
+
+public static int AddBook(string Title, string AuthorId, string Price, string Pages)
+int rows;
+try
+using MySqLConnection connection = new MySqlConnection(ConnectionString))
+connection. Open;
+MySqLComnand command = new MySqlConnand("INSERT INTO Books (Title, AuthorId, Price, Pages) VALUES (Title, AuthorId, (Price, (Pages)".
+connection);
+command. Parameters. AddWithValue("(Title", Title);
+command. Parameters.AddWithValue("@AuthorId", AuthorId); command. Parameters.AddWithValue("@Price", Price); command. Parameters.AddWithValue("@Pages", Pages);
+rows = command. ExecuteNonQueryO;
+return rows;
+I
+catch (Exception ex)
+MessageBox. Show(ex. Message);
+rOWS = 0;
+return rows;
+
+
+
+
+
+
+public partial class MainWindow : Window
+Ссылокс 0
+public MainWindow
+InitializeComponent);
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+310
+34
+35
+36
+private void Button_Click(object sender, RoutedEventArgs e)
+int rows = DAL.ExecuteNonQuery(QueryTextBox.Text,
+RowsLabel. Content = $"Строк задето: (rows)";
+Ссылокс 1
+private vozd Button_CLick_I(object sender, RoutedEventArgs e)
+int rous = DAL.DeleteBook(DeleteBookTextBox-Tex1
+DeLeteLabel.Content = $"Строк задето: (rows)":
+Ссылок: 1
+private void Button_Click_2(object sender, RoutedEventArgs e)
+Ent rows = DAL.AddBookTit LeBookTextBox. Text
+AuthorIdBookTextBox.
+AddLabel. Content = $"Строк задето: (rows)";
